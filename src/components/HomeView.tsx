@@ -2,6 +2,7 @@ import { ArrowRight, Star, Heart, Sparkles, Flame, Map } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Product, ViewType } from '../types';
 import { PRODUCTS, REVIEWS } from '../data';
+import PotteryWheel3D from './PotteryWheel3D';
 
 interface HomeViewProps {
   setCurrentView: (view: ViewType) => void;
@@ -24,7 +25,7 @@ export default function HomeView({
         {/* Background Image with elegant overlay */}
         <div className="absolute inset-0">
           <img
-            src="/src/assets/images/hero_ceramics_1783444491314.jpg"
+            src="/images/hero_ceramics_1783444491314.jpg"
             alt="Handcrafted ceramics on a table"
             className="w-full h-full object-cover object-center opacity-45 transform scale-102 filter blur-xs"
             referrerPolicy="no-referrer"
@@ -33,71 +34,87 @@ export default function HomeView({
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 flex items-center">
-          <div className="max-w-2xl text-left space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 px-3.5 py-1 rounded-full text-blue-300 text-xs font-semibold uppercase tracking-wider"
-              id="hero-label-badge"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-              <span>Authentic Handcrafted Stoneware</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight"
-              id="hero-title"
-            >
-              Shaped by the Ocean,<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
-                Fired by the Sun.
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-slate-300 leading-relaxed max-w-xl"
-              id="hero-tagline"
-            >
-              Exquisite, functional local pottery crafted on the Oregon Coast. Inspired by ocean tides, seafoam speckles, and deep cobalt currents.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
-              id="hero-actions"
-            >
-              <button
-                onClick={() => {
-                  setCurrentView('products');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/35 transition-all flex items-center justify-center space-x-2 group cursor-pointer"
-                id="hero-cta-shop"
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center" id="hero-layout-grid">
+            
+            {/* Left Column: Brand Copy & CTAs */}
+            <div className="lg:col-span-6 text-left space-y-6" id="hero-brand-column">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 px-3.5 py-1 rounded-full text-blue-300 text-xs font-semibold uppercase tracking-wider"
+                id="hero-label-badge"
               >
-                <span>Shop the Collection</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentView('about');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl border border-slate-800 hover:border-slate-700 transition-all flex items-center justify-center cursor-pointer"
-                id="hero-cta-about"
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                <span>Authentic Handcrafted Stoneware</span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight"
+                id="hero-title"
               >
-                <span>Our Philosophy</span>
-              </button>
-            </motion.div>
+                Shaped by the Ocean,<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
+                  Fired by the Sun.
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg text-slate-300 leading-relaxed max-w-xl"
+                id="hero-tagline"
+              >
+                Exquisite, functional local pottery crafted on the Oregon Coast. Inspired by ocean tides, seafoam speckles, and deep cobalt currents.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 pt-4"
+                id="hero-actions"
+              >
+                <button
+                  onClick={() => {
+                    setCurrentView('products');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/35 transition-all flex items-center justify-center space-x-2 group cursor-pointer"
+                  id="hero-cta-shop"
+                >
+                  <span>Shop the Collection</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </button>
+                <button
+                  onClick={() => {
+                    setCurrentView('about');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl border border-slate-800 hover:border-slate-700 transition-all flex items-center justify-center cursor-pointer"
+                  id="hero-cta-about"
+                >
+                  <span>Our Philosophy</span>
+                </button>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Interactive 3D Pottery Wheel Branding element */}
+            <div className="lg:col-span-6 w-full max-w-lg mx-auto" id="hero-3d-branding-column">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92, rotate: 1 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+              >
+                <PotteryWheel3D />
+              </motion.div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -237,7 +254,7 @@ export default function HomeView({
           {/* Visual column */}
           <div className="lg:col-span-5 h-64 lg:h-auto min-h-[320px] relative bg-slate-200">
             <img
-              src="/src/assets/images/artisan_potter_1783444525623.jpg"
+              src="/images/artisan_potter_1783444525623.jpg"
               alt="Elena throwing clay on potter wheel"
               className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"

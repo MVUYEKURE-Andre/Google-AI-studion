@@ -59,7 +59,7 @@ export default function AboutView() {
           <div className="absolute inset-0 bg-blue-600 rounded-3xl translate-x-4 translate-y-4 -z-10 opacity-10" />
           <div className="aspect-4/3 rounded-3xl overflow-hidden shadow-lg border-4 border-white bg-slate-100">
             <img
-              src="/src/assets/images/artisan_potter_1783444525623.jpg"
+              src="/images/artisan_potter_1783444525623.jpg"
               alt="Elena Vance working on her wheel"
               className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"
