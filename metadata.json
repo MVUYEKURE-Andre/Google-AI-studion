@@ -1,0 +1,6 @@
+{
+  "name": "Blue Wave Ceramics",
+  "description": "A clean, elegant local pottery shop website featuring a curated product catalog, custom orders form, and store information in a blue and white aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
